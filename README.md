@@ -142,101 +142,58 @@ Image 3:
 
 # 5	Universal Task Configuration
 
-**1.	Fill Out MS Teams Universal Task:**
+** 5.1.	Sending a notification to Microsoft Teams Incoming webhook:**
 
 Image 4:
 
 ![](images/image4.png)
 
-Universal Tasks for MS Teams Notifications Forwarding
-=====================================================
+** 5.2.	Sending an Approval notification to Microsoft Teams Incoming webhook:**
 
-The following chapter describes the provided MS Teams Notifications
-Forwarding Universal Tasks.
+Image 5:
 
-  UT Name                   Description
-  ------------------------- ----------------------------------------------------------------
-  ut-ms-teams-integration   Send notification to Microsoft teams incoming webhook channel.
+![](images/image5.png)
 
-Send message
-------------
+# 6 Universal Tasks for MS Teams Notifications Forwarding
 
-With Send Message function we can send a notification message to the
-Microsoft Teams channel with the current task instance details.
+The following chapter describes the provided MS Teams Notifications Forwarding Universal Tasks.
+
+Image 6:
+
+![](images/image6.png)
+
+**6.1 Send message**
+
+With Send Message function we can send a notification message to the Microsoft Teams channel with the current task instance details.
 
 **Field Description:**
 
-+------------------+--------------------------------------------------+
-| Field            | Description                                      |
-+==================+==================================================+
-| Agent            | The Agent that runs the Python script assigned   |
-|                  | to the Universal Task                            |
-+------------------+--------------------------------------------------+
-| Teams Function   | Send Message                                     |
-+------------------+--------------------------------------------------+
-| Job Name         | Name of the job, by default it takes the current |
-|                  | job name                                         |
-|                  |                                                  |
-|                  | \${ops_task_name}                                |
-+------------------+--------------------------------------------------+
-| Job Status       | Status of the job, by default it takes the       |
-|                  | current job name                                 |
-|                  |                                                  |
-|                  | \${ops_status}                                   |
-+------------------+--------------------------------------------------+
-| MS Teams Webhook | The incoming web hook of Microsoft Teams channel |
-+------------------+--------------------------------------------------+
-| Execution User   | Details of the execution user, by default takes  |
-|                  | the current user name                            |
-|                  |                                                  |
-|                  | \${ops_execution_user}                           |
-+------------------+--------------------------------------------------+
-| Job type         | Task type of task instance, by default takes the |
-|                  | current task instance type                       |
-|                  |                                                  |
-|                  | \${ops_task_type}                                |
-+------------------+--------------------------------------------------+
-| Message Title    | The title of the message sent to Microsoft Teams |
-|                  | channel                                          |
-+------------------+--------------------------------------------------+
-| Message Text     | The text of the message sent to Microsoft Teams  |
-|                  | channel                                          |
-+------------------+--------------------------------------------------+
+Image 7:
 
-![A screenshot of a cell phone Description automatically
-generated](media/image5.PNG){width="6.298611111111111in"
-height="1.6659722222222222in"}
+![](images/image7.png)
 
-Approval Notification
----------------------
+Image 8:
 
-Manual tasks are typically used when there is a need for manual
-intervention of user in a workflow process. Traditionally the Manual
-Task is completed successfully in the Universal controller by clicking
-"Set Completed" command.
+![](images/image8.png)
 
-With this universal task for Microsoft teams we can provide you with a
-notification in the Microsoft team incoming webhook channel, when the
-workflow reaches the manual task with status "Action Required".
+**6.2 Approval Notification**
 
-Upon receiving the notification on the teams channel the Users can click
-on on the "Approve" Button in the interactive message for the workflow
-to proceed further. This interactive message is sent from the Universal
-controller.
+Manual tasks are typically used when there is a need for manual intervention of user in a workflow process. Traditionally the Manual Task is completed successfully in the 
+Universal controller by clicking "Set Completed" command.
 
-When the "Approve" or "Reject" button is clicked in the interactive
-message an API call is made to a function where it can handle the event
-from the Microsoft Teams. For example we use python function in AWS
-lambda + API gateway or Azure functions or any custom URL where the
-Teams messaging platform can make an API POST call to handle the user
-action in the message as a payload and based on the posted payload data
-from the Teams , Universal controller API call will be made to set the
-manual task either to set complete status or No action in the function.
-Please refer to the handler.py file in the serverless function folder
-for a sample serverless function implementation using AWS lambda.
+With this universal task for Microsoft teams we can provide you with a notification in the Microsoft team incoming webhook channel, when the workflow reaches the manual 
+task with status "Action Required". 
 
-The parameters that would be need for this API function module would be
-as below :
+Upon receiving the notification on the teams channel the Users can click on on the "Approve" Button in the interactive message for the workflow to proceed further. This 
+interactive message is sent from the Universal controller.
+
+When the "Approve" or "Reject" button is clicked in the interactive message an API call is made to a function where it can handle the event from the Microsoft Teams. For 
+example we use python function in AWS lambda + API gateway or Azure functions or any custom URL where the Teams messaging platform can make an API POST call to handle the user
+action in the message as a payload and based on the posted payload data from the Teams , Universal controller API call will be made to set the manual task either to set 
+complete status or No action in the function. Please refer to the handler.py file in the serverless function folder for a sample serverless function implementation using AWS 
+lambda.
+
+The parameters that would be need for this API function module would be as below :
 
 -   Teams event payload data
 
@@ -247,42 +204,10 @@ as below :
 
 **Field Description:**
 
-+------------------+--------------------------------------------------+
-| Field            | Description                                      |
-+==================+==================================================+
-| Agent            | The Agent that runs the Python script assigned   |
-|                  | to the Universal Task                            |
-+------------------+--------------------------------------------------+
-| Teams Function   | Approval Notification                            |
-+------------------+--------------------------------------------------+
-| Job Name         | Name of the job, by default it takes the current |
-|                  | job name                                         |
-|                  |                                                  |
-|                  | \${ops_task_name}                                |
-+------------------+--------------------------------------------------+
-| Job Status       | Status of the job, by default it takes the       |
-|                  | current job name                                 |
-|                  |                                                  |
-|                  | \${ops_status}                                   |
-+------------------+--------------------------------------------------+
-| MS Teams Webhook | The incoming web hook of Microsoft Teams channel |
-+------------------+--------------------------------------------------+
-| Execution User   | Details of the execution user, by default takes  |
-|                  | the current user name                            |
-|                  |                                                  |
-|                  | \${ops_execution_user}                           |
-+------------------+--------------------------------------------------+
-| Job type         | Task type of task instance, by default takes the |
-|                  | current task instance type                       |
-|                  |                                                  |
-|                  | \${ops_task_type}                                |
-+------------------+--------------------------------------------------+
-| Message Title    | The title of the message sent to Microsoft Teams |
-|                  | channel                                          |
-+------------------+--------------------------------------------------+
-| Message Text     | The text of the message sent to Microsoft Teams  |
-|                  | channel                                          |
-+------------------+--------------------------------------------------+
+Image 9:
+
+![](images/image9.png)
+
 
 Changes to be made on the serverless function(handler.py) :
 
@@ -295,44 +220,22 @@ Changes to be made on the serverless function(handler.py) :
 4.  Change the Universal Controller user credentials in the serverless
     function
 
-![A screenshot of a cell phone Description automatically
-generated](media/image6.PNG){width="6.298611111111111in"
-height="4.2027777777777775in"}
+Image 10:
 
-Test Cases
-==========
+![](images/image10.png)
+
+# Test Cases
 
 The following basic test cases has been performed:
 
-+----------------------------+----------------------------+---------+
-| Case\#                     | Assumed behavior           | Result  |
-+============================+============================+=========+
-| Set as Incoming Webhook an | 1\. The application should | Correct |
-| invalid uri                | stop and exit with message |         |
-|                            | UAC failed to forward a    |         |
-|                            | message in this MS Teams   |         |
-|                            | channel.                   |         |
-|                            |                            |         |
-|                            | 2\. No message should be   |         |
-|                            | sent.                      |         |
-+----------------------------+----------------------------+---------+
-| Set as Incoming Webhook a  | 1\. A message should be    | Correct |
-| valid uri                  | sent.                      |         |
-+----------------------------+----------------------------+---------+
+Image 11:
 
-Document References
-===================
+![](images/image11.png)
+
+# Document References
 
 This document references the following documents:
 
-+------------------------------+--------------------------------------+
-| Ref\#                        | Description                          |
-+==============================+======================================+
-| 1.  Microsoft Teams Webhooks | <h                                   |
-|                              | ttps://docs.microsoft.com/en-us/micr |
-|                              | osoftteams/platform/webhooks-and-con |
-|                              | nectors/how-to/add-incoming-webhook> |
-+------------------------------+--------------------------------------+
-| 2.  requests                 | <https://pyp                         |
-|                              | i.org/project/requests/#description> |
-+------------------------------+--------------------------------------+
+Image 12:
+
+![](images/image12.png)
