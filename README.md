@@ -12,4 +12,4 @@
 <li>Requires serverless infrastructure (Examples include AWS Lambda or Microsoft Azure Functions or Google Cloud Functions).</li>
 <li>If you do not have a serverless infrastructure, there is a Microsoft Team Universal Task for notification only&nbsp;<a href="https://marketplace.stonebranch.com/all/universal-tasks/77/universal-task-for-microsoft-teams-messaging" target="_self">here</a>.&nbsp;</li>
 </ul>
-Please visit this link to find key features, prerequisites, installation instructions, configuration instructions, and examples of how to use this integration. [Universal Task Documentation](https://docs.stonebranch.com/confluence/display/UC69/UAC+-+Microsoft+Teams+Integration)
+Please visit this link to find key features, prerequisites, installation instructions, configuration instructions, and examples of how to use this integration. [Microsoft Teams Integration](https://docs.stonebranch.com/confluence/display/UC69/UAC+-+Microsoft+Teams+Integration)
